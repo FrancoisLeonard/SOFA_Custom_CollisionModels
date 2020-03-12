@@ -1,10 +1,12 @@
 #include <algorithm>
 #include <cmath>
+
+#include "ScytherCubeModel.h"
 #include <sofa/core/ObjectFactory.h>
+
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/simulation/Simulation.h>
 
-#include "ScytherCubeModel.h"
 
 namespace SofaInterface {
 

@@ -21,6 +21,7 @@
 #include "ScytherCubeModel.h"
 #include "ScytherPointModel.h"
 
+
 namespace SofaInterface {
 
 template <class DataTypes>
@@ -190,7 +191,7 @@ bool ScytherPointCollisionModel<DataTypes>::canCollideWithElement(int index, Col
             index2) // to avoid to have two times the same auto-collision we only consider the case when index > index2
             return false;
 
-        sofa::core::topology::BaseMeshTopology* topology = this->getMeshTopology();
+        sofa::core::topology::BaseMeshTopology* topology = this->getCollisionTopology();
 
         // in the neighborhood, if we find a point in common, we cancel the collision
         const sofa::helper::vector<unsigned int>& verticesAroundVertex1 = topology->getVerticesAroundVertex(index);

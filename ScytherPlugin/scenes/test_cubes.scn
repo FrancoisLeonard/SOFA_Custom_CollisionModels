@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <Node name="root" gravity="0 0 0" dt="0.02">
     <RequiredPlugin name="SofaOpenglVisual"/>
-    <RequiredPlugin name="SofaScytherInterface"/>
+    <RequiredPlugin name="ScytherPlugin"/>
 
     <DefaultPipeline name="CollisionPipeline" verbose="0" draw="0" depth="0" printLog="1" />
 <!--    <SofaCollisionPipeline name="CollisionPipeline" verbose="0" draw="0" depth="2" />-->
@@ -30,14 +30,14 @@
             <BarycentricMapping name="visual mapping 1" input="@../dofs1" output="@VisualModel1" />
         </Node>
         <Node name="Surf1">
-            <MeshTopology src="@../../CubeSurface" />
-            <MechanicalObject src="@../../CubeSurface" dx="10" dy="0" dz="0" />
+            <MeshTopology name="surf1Topo" src="@../../CubeSurface" />
+            <MechanicalObject name="DOFsurf1" src="@../../CubeSurface" dx="10" dy="0" dz="0" />
 <!--            <TriangleCollisionModel />
             <LineCollisionModel />
             <PointCollisionModel />-->
             <ScytherPointModel name="ScytherPointModel1" />
             <ScytherTriangleModel name="ScytherTriangleModel1" />
-            <BarycentricMapping />
+            <BarycentricMapping name="barymap1"/>
         </Node>
     </Node>
 
@@ -56,14 +56,14 @@
             <BarycentricMapping name="visual mapping 2" input="@../dofs2" output="@VisualModel2" />
         </Node>
         <Node name="Surf2">
-            <MeshTopology src="@../../CubeSurface" />
-            <MechanicalObject src="@../../CubeSurface" />
+            <MeshTopology name="surf2Topo" src="@../../CubeSurface" />
+            <MechanicalObject name="DOFsurf2" src="@../../CubeSurface" />
 <!--            <TriangleCollisionModel />
             <LineCollisionModel />
             <PointCollisionModel />-->
             <ScytherPointModel name="ScytherPointModel2" />
-            <ScytherTriangleModel name="ScytherTriangleModel1" />
-            <BarycentricMapping />
+            <ScytherTriangleModel name="ScytherTriangleModel2" />
+            <BarycentricMapping name="barymap2" />
         </Node>
     </Node>
 

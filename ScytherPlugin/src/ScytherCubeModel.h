@@ -1,7 +1,8 @@
 
 #ifndef SCYTHER_COLLISION_CUBE_MODEL_H
 #define SCYTHER_COLLISION_CUBE_MODEL_H
-#include "SofaBaseCollision/config.h"
+//#include <SofaMeshCollision/config.h>
+#include <scyther.h>
 
 #include <sofa/core/CollisionModel.h>
 #include <SofaBaseMechanics/MechanicalObject.h>
@@ -29,7 +30,7 @@ public:
 
 
 
-class SOFA_BASE_COLLISION_API ScytherCubeModel : public sofa::core::CollisionModel
+class SOFA_SCYTHER_API ScytherCubeModel : public sofa::core::CollisionModel
 {
 public:
     SOFA_CLASS(ScytherCubeModel,sofa::core::CollisionModel);

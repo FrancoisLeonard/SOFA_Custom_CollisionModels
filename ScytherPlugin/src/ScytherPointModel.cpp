@@ -1,14 +1,14 @@
 
 #define SCYTHER_POINT_COLLISION_MODEL_CPP
+#include "ScytherPointModel.inl"
 #include <sofa/core/ObjectFactory.h>
 
-#include <SofaBaseCollision/RigidCapsuleModel.h>
-#include <SofaMeshCollision/BarycentricContactMapper.h>
-#include <SofaMeshCollision/RigidContactMapper.inl>
+//#include <SofaBaseCollision/RigidCapsuleModel.h>
+//#include <SofaMeshCollision/BarycentricContactMapper.h>
+//#include <SofaMeshCollision/RigidContactMapper.inl>
 
 //#include <sofa/core/collision/Contact.h>
 
-#include "ScytherPointModel.inl"
 
 
 namespace SofaInterface {
@@ -17,6 +17,6 @@ int ScytherPointCollisionModelClass = sofa::core::RegisterObject("Collision mode
                                           .add<ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>>()
                                           .addAlias("ScytherPointModel");
 
-template class SOFA_MESH_COLLISION_API ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>;
+template class SOFA_SCYTHER_API ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>;
 
 } // namespace SofaInterface

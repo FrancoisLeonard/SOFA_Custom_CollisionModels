@@ -24,7 +24,7 @@
 namespace sofa {
 namespace core {
 namespace collision {
-template class SOFA_BASE_COLLISION_API IntersectorFactory<SofaInterface::ScytherIntersection>;
+template class SOFA_SCYTHER_API IntersectorFactory<SofaInterface::ScytherIntersection>;
 }
 } // namespace core
 } // namespace sofa

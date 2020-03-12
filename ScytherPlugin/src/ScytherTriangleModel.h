@@ -1,7 +1,8 @@
 
 #ifndef SCYTHER_COLLISION_TRIANGLE_MODEL_H
 #define SCYTHER_COLLISION_TRIANGLE_MODEL_H
-#include "SofaBaseMechanics/config.h"
+//#include <SofaMeshCollision/config.h>
+#include <scyther.h>
 
 #include <SofaBaseMechanics/MechanicalObject.h>
 #include <SofaBaseTopology/TopologyData.h>
@@ -79,7 +80,7 @@ public:
  * The class \sa TScytherTriangle is used to access specific triangle of this collision Model.
  */
 template <class TDataTypes>
-class SOFA_MESH_COLLISION_API ScytherTriangleCollisionModel : public sofa::core::CollisionModel
+class SOFA_SCYTHER_API ScytherTriangleCollisionModel : public sofa::core::CollisionModel
 {
 public:
     SOFA_CLASS(SOFA_TEMPLATE(ScytherTriangleCollisionModel, TDataTypes), sofa::core::CollisionModel);
@@ -120,6 +121,11 @@ public:
     Data<bool> d_bothSide;       ///< to activate collision on both side of the triangle model
     Data<bool> d_computeNormals; ///< set to false to disable computation of triangles normal
 
+        /// Link to be set to the topology container in the component graph.
+    sofa::core::topology::BaseMeshTopology* getCollisionTopology() override
+    {
+        return m_topology;
+    }
 protected:
     sofa::core::behavior::MechanicalState<DataTypes>* m_mstate;   ///< Pointer to the corresponding MechanicalState
     sofa::core::topology::BaseMeshTopology*           m_topology; ///< Pointer to the corresponding Topology
@@ -351,7 +357,7 @@ typedef ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types> ScytherTrian
 typedef TScytherTriangle<sofa::defaulttype::Vec3Types>              ScytherTriangle;
 
 #if !defined(SCYTHER_COLLISION_TRIANGLE_MODEL_CPP)
-extern template class SOFA_MESH_COLLISION_API ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>;
+extern template class SOFA_SCYTHER_API ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>;
 #endif
 
 } // namespace SofaInterface

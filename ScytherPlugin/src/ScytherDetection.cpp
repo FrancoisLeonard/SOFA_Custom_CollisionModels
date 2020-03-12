@@ -16,38 +16,47 @@
 //#include <sofa/core/collision/Contact.h>
 //#include <sofa/helper/Factory.inl>
 
-#include "ScytherDetection.h"
-#include "ScytherPointModel.h"
-#include "ScytherTriangleModel.h"
+#include <ScytherDetection.h>
+#include <SofaBaseCollision/BaseContactMapper.h>
+#include <SofaBaseCollision/BaseContactMapper.cpp>
 
-// namespace sofa {
-// namespace component {
-// namespace collision {
-// template <class Factory, class RealObject>
-// using Creator = sofa::helper::Creator<Factory, RealObject>;
-// using Contact = sofa::core::collision::Contact;
+#include <SofaMeshCollision/BarycentricPenalityContact.inl>
+#include <SofaMeshCollision/BarycentricContactMapper.inl>
+#include <SofaMeshCollision/RigidContactMapper.inl>
+#include <SofaBaseCollision/RigidCapsuleModel.h>
 
-// Creator<
-//    Contact::Factory, BarycentricPenalityContact<
-//                          SofaInterface::ScytherPointModel<sofa::defaulttype::Vec3Types>,
-//                          SofaInterface::ScytherPointModel<sofa::defaulttype::Vec3Types>>>
-//    ScytherPointScytherPointPenalityContactClass("default", true);
-// Creator<
-//    Contact::Factory, BarycentricPenalityContact<
-//                          SofaInterface::ScytherTriangleModel<sofa::defaulttype::Vec3Types>,
-//                          SofaInterface::ScytherPointModel<sofa::defaulttype::Vec3Types>>>
-//    ScytherTriangleScytherPointPenalityContactClass("default", true);
+namespace sofa {
+    namespace component {
+        namespace collision {
 
-// template class SOFA_MESH_COLLISION_API BarycentricPenalityContact<
-//    SofaInterface::ScytherPointModel<sofa::defaulttype::Vec3Types>,
-//    SofaInterface::ScytherPointModel<sofa::defaulttype::Vec3Types>>;
-// template class SOFA_MESH_COLLISION_API BarycentricPenalityContact<
-//    SofaInterface::ScytherTriangleModel<sofa::defaulttype::Vec3Types>,
-//    SofaInterface::ScytherPointModel<sofa::defaulttype::Vec3Types>>;
+            ContactMapperCreator< ContactMapper<SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types> > > ScytherPointContactMapperClass("default", true);
+            ContactMapperCreator< ContactMapper<SofaInterface::ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types> > > ScytherTriangleContactMapperClass("default", true);
 
-//} // namespace collision
-//} // namespace component
-//} // namespace sofa
+            template class SOFA_SCYTHER_API ContactMapper<SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>, sofa::defaulttype::Vec3Types>;
+            template class SOFA_SCYTHER_API ContactMapper<SofaInterface::ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>, sofa::defaulttype::Vec3Types>;
+
+            Creator<
+                core::collision::Contact::Factory, BarycentricPenalityContact<
+                SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>,
+                SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types> > >
+                ScytherPointScytherPointPenalityContactClass("default", true);
+            Creator<
+                core::collision::Contact::Factory, BarycentricPenalityContact<
+                SofaInterface::ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>,
+                SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>>>
+                ScytherTriangleScytherPointPenalityContactClass("default", true);
+
+            template class SOFA_SCYTHER_API BarycentricPenalityContact<
+                SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>,
+                SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types> >;
+            template class SOFA_SCYTHER_API BarycentricPenalityContact<
+                SofaInterface::ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>,
+                SofaInterface::ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>>;
+
+        } // namespace collision
+    } // namespace component
+} // namespace sofa
+
 
 //
 
