@@ -53,7 +53,7 @@ const char* getModuleComponentList()
 }
 const char* getModuleLicense()
 {
-    return "ELUARD";
+    return "François Leonard";
 }
 
 } // namespace component
