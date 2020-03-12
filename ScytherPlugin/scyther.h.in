@@ -1,0 +1,12 @@
+#ifndef SOFA_PLUGIN_SCYTHER_H
+#define SOFA_PLUGIN_SCYTHER_H
+
+#include <sofa/helper/system/config.h>
+
+#ifdef SOFA_BUILD_SCYTHER_PLUGIN
+#  define SOFA_SCYTHER_API SOFA_EXPORT_DYNAMIC_LIBRARY
+#else
+#  define SOFA_SCYTHER_API SOFA_IMPORT_DYNAMIC_LIBRARY
+#endif
+
+#endif /* SOFA_PLUGIN_SCYTHER_H */

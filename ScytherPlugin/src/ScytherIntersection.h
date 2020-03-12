@@ -1,7 +1,7 @@
 
 #ifndef SOFA_SCYTHER_INTERSECTION_H
 #define SOFA_SCYTHER_INTERSECTION_H
-#include "SofaGeneral/config.h"
+#include <scyther.h>
 
 #include <SofaBaseCollision/BaseProximityIntersection.h>
 
@@ -22,14 +22,13 @@
 #include <SofaMeshCollision/TriangleModel.h>
 #include <SofaUserInteraction/RayModel.h>
 
-#include "ScytherCubeModel.h"
-#include "ScytherPointModel.h"
-#include "ScytherTriangleModel.h"
-#include "SofaScytherObject.h"
+#include <ScytherPointModel.h>
+#include <ScytherTriangleModel.h>
+#include <ScytherCubeModel.h>
 
-namespace SofaInterface {
+namespace SofaInterface {  
 
-class SOFA_BASE_COLLISION_API ScytherIntersection : public sofa::component::collision::BaseProximityIntersection
+class SOFA_SCYTHER_API ScytherIntersection : public sofa::component::collision::BaseProximityIntersection
 {
     //    typedef sofa::component::collision::MinProximityIntersection::OutputVector
     //        OutputVector; // should take from elsewhere ???

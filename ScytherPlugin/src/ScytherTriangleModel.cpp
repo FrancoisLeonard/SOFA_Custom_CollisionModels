@@ -1,8 +1,8 @@
 
 #define SCYTHER_COLLISION_TRIANGLE_MODEL_CPP
+#include "ScytherTriangleModel.inl"
 #include <sofa/core/ObjectFactory.h>
 
-#include "ScytherTriangleModel.inl"
 
 namespace SofaInterface {
 
@@ -12,6 +12,6 @@ int ScytherTriangleCollisionModelClass =
         .addAlias("ScytherTriangleModel");
 ;
 
-template class SOFA_MESH_COLLISION_API ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>;
+template class SOFA_SCYTHER_API ScytherTriangleCollisionModel<sofa::defaulttype::Vec3Types>;
 
 } // namespace SofaInterface

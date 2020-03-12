@@ -1,6 +1,7 @@
 #ifndef SCYTHER_POINT_COLLISION_MODEL_H
 #define SCYTHER_POINT_COLLISION_MODEL_H
-#include <SofaMeshCollision/config.h>
+//#include <SofaMeshCollision/config.h>
+#include <scyther.h>
 
 #include <SofaBaseMechanics/MechanicalObject.h>
 //#include <SofaMeshCollision/LocalMinDistanceFilter.h>
@@ -8,8 +9,6 @@
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <sofa/defaulttype/VecTypes.h>
 #include <vector>
-
-#include <SofaMeshCollision/BarycentricPenalityContact.h>
 
 namespace SofaInterface {
 
@@ -59,7 +58,7 @@ public:
 };
 
 template <class TDataTypes>
-class SOFA_MESH_COLLISION_API ScytherPointCollisionModel : public sofa::core::CollisionModel
+class SOFA_SCYTHER_API ScytherPointCollisionModel : public sofa::core::CollisionModel
 {
 public:
     SOFA_CLASS(SOFA_TEMPLATE(ScytherPointCollisionModel, TDataTypes), sofa::core::CollisionModel);
@@ -209,7 +208,7 @@ typedef ScytherPointCollisionModel<sofa::defaulttype::Vec3Types> ScytherPointMod
 typedef TScytherPoint<sofa::defaulttype::Vec3Types>              ScytherPoint;
 
 ////#if !defined(SCYTHER_POINT_COLLISION_MODEL_CPP)
-extern template class SOFA_MESH_COLLISION_API ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>;
+extern template class SOFA_SCYTHER_API ScytherPointCollisionModel<sofa::defaulttype::Vec3Types>;
 ////#endif
 
 } // namespace SofaInterface
